@@ -1,3 +1,5 @@
+// 2021 3/17 Nanahoshi
+
 #include <ros/ros.h>
 #include <string>
 
@@ -13,5 +15,3 @@ int main(int argc, char **argv) {
 
     return(0) ;
 }
-
-
