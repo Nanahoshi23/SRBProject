@@ -1,4 +1,4 @@
-#include "ros/ros.h"
+#include <ros/ros.h>
 #include <string>
 
 int main() {
@@ -8,7 +8,7 @@ int main() {
     ros::Rate rate(5) ;
     while(ros::ok()) {
         ROS_INFO_STREAM("Hello World") ;
-        rate.sleep ;
+        rate.sleep() ;
     }
 
     return(0) ;
