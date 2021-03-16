@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <string>
 
-int main() {
+int main(int argc, char **argv) {
     ros::init(argc, argv, "hello_world") ;
     ros::NodeHandle nh ;
 
