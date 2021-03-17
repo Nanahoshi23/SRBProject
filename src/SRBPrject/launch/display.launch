@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <arg name="model" default="$(find SRBProject)/robots/dtw_robot.xacro" />
+    <arg name="rvizconfig" default="$(find SRBProject)/rviz/slab_srb_disp_robot.rviz" />  
+
+        <!-- dtw_robot -->
+    <include file="$(find m2go_project)/launch/srb_spawn.launch">
+        <arg name="robot_name" value="slab_srb_robot"/>
+    </include>
+
+    <group ns="slab_srb_robot">
+        <!-- to increase the wheel odometry error -->
+        <param name="/slab_srb_robot/diff_drive_controller/wheel_radius" value="0.1825" />
+
+        <!-- diff_driver -->
+        <node name="srb_diff_driver" pkg="SRBProject" type="srb_diff_driver" output="screen">
+        </node>
+
+    </group>
+
+    <!-- rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>
