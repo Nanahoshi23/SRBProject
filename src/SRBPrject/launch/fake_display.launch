@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<launch>
+    <arg name="model" default="$(find slab_srb)/robots/slab_srb_robot.xacro" />
+    <arg name="rvizconfig" default="$(find slab_srb)/rviz/slab_srb_disp_robot.rviz" />  
+
+    <!-- gazebo world -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find slab_srb)/worlds/test1.world"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+
+    <!-- dtw_robot -->
+    <include file="$(find slab_srb)/launch/fake_srb_spawn.launch">
+        <arg name="robot_name" value="slab_srb_robot"/>
+    </include>
+
+    <group ns="slab_srb_robot">
+        <!-- to increase the wheel odometry error -->
+        <param name="/slab_srb_robot/diff_drive_controller/wheel_radius" value="0.1225" />
+
+
+        <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true" output="screen">
+            <rosparam command="load" file="$(find slab_srb)/config/ekf_localization/mode1.yaml" />
+            <param name="tf_prefix" value="slab_srb_robot"/>
+            <remap from="/odometry/filtered" to="fusion/odom" />
+            <remap from="odom0" to="diff_drive_controller/odom" />
+            <remap from="imu0"  to="imu/data" />
+        </node>
+
+
+    </group>
+
+    <!-- rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>
