@@ -2,10 +2,10 @@
 jrobot name="slab_srb_robot" xmlns:xacro="http://ros.org/wiki/xacro">
 
     <xacro:arg name="robot_name" default="slab_srb_robot"/>
-    <xacro:include filename="$(find slab_srb)/xacro/srb_body/body.xacro" />
-    <xacro:include filename="$(find slab_srb)/xacro/srb_wheel/wheel.xacro" />
-    <xacro:include filename="$(find slab_srb)/xacro/srb_sensors/urg/urg.xacro" />
-    <xacro:include filename="$(find slab_srb)/xacro/srb_sensors/imu/imu.xacro" />
+    <xacro:include filename="$(find SRBProject)/xacro/srb_body/body.xacro" />
+    <xacro:include filename="$(find SRBProject)/xacro/srb_wheel/wheel.xacro" />
+    <xacro:include filename="$(find SRBProject)/xacro/srb_sensors/urg/urg.xacro" />
+    <xacro:include filename="$(find SRBProject)/xacro/srb_sensors/imu/imu.xacro" />
     <link name="base_link"/>
 
     <xacro:body_macro parent="base_link" />
