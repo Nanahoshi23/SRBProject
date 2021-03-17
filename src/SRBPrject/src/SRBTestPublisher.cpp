@@ -1,6 +1,5 @@
 #include <ros/ros.h>
-
-#include <stream>
+#include <std_msgs/String.h>
 
 int main(int argc, char **argv)
 {
@@ -19,13 +18,14 @@ int main(int argc, char **argv)
         ss << "Hello World" << count ;
         msg.data = ss.str() ;
 
-        ROS_INFO_("%s", msg.data.c_str()) ;
+        ROS_INFO("%s", msg.data.c_str()) ;
 
         srb_test_pub.publish(msg) ;
 
         ros::spinOnce() ;
         loop_rate.sleep() ;
-        ++count() ;
+        ++count ;
+
     }
 
 

@@ -1,5 +1,5 @@
 #include <ros/ros.h>
-#include <std_msgs/String>
+#include <std_msgs/String.h>
 
 void msgCallBack(const std_msgs::String::ConstPtr& msg)
 {
@@ -13,6 +13,4 @@ int main(int argc, char **argv)
 
     ros::Subscriber srb_test_sub = nh.subscribe("SRBTestSubscriber", 1000, msgCallBack) ;
     ros::spin() ;
-
-    return() ;
 }
