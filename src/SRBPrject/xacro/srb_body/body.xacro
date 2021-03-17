@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<robot name="slab_srb_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <material name="gray">
+        <color rgba="0.5 0.5 0.5 2.5"/>
+    </material>
+
+    <xacro:macro name="body_macro" params="parent">
+
+        <joint name="body_joint1" type="fixed">
+            <parent link="${parent}"/>
+            <child  link="body_link1"/>
+            <origin xyz="0 0 0.08525" rpy="0 0 0"/>
+        </joint>
+        <link name="body_link1">
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="0.01"/>
+                <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.595 0.214 0.135" />
+                </geometry>
+                <material name="gray" />
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.595 0.214 0.135" />
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="body_joint2" type="fixed">
+            <parent link="${parent}"/>
+            <child  link="body_link2"/>
+            <origin xyz="0 0 0.08525" rpy="0 0 0"/>
+        </joint>
+
+        <link name="body_link2">
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <mass value="0.01"/>
+                <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.17 0.515 0.135" />
+                </geometry>
+                <material name="gray" />
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <box size="0.17 0.515 0.135" />
+                </geometry>
+            </collision>
+        </link>
+
+
+        <joint name="ball_joint" type="fixed">
+            <parent link="${parent}"/>
+            <child  link="ball_link"/>
+            <origin xyz="-0.2 0 0.08525" rpy="0 0 0"/>
+        </joint>
+        <link name="ball_link">
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <sphere radius="0.0825" />
+                </geometry>
+                <material name="gray" />
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <sphere radius="0.0825" />
+                </geometry>
+                <material name="gray" />
+            </collision>
+        </link>
+
+    </xacro:macro> 
+
+</robot>
