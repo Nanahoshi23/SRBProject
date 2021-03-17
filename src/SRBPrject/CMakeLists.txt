@@ -152,6 +152,14 @@ target_link_libraries(HelloWorld
    ${catkin_LIBRARIES}
 )
 
+
+# SRBPrject
+add_executable(SRBTestPublisher src/SRBTestPublisher.cpp)
+target_link_libraries(SRBTestPublisher ${catkin_LIBRARIES})
+
+add_executable(SRBTestSubscriber src/SRBTestSubscriber.cpp)
+target_link_libraries(SRBTestSubscriber ${catkin_LIBRARIES})
+
 #############
 ## Install ##
 #############
@@ -204,5 +212,3 @@ target_link_libraries(HelloWorld
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
-## Add folders to be run by python nosetests
-# catkin_add_nosetests(test)
