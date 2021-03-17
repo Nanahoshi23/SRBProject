@@ -6,7 +6,7 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "SRBTestPublisher") ;
     ros::NodeHandle nh ;
 
-    ros::Publisher srb_test_pub = nh.advertise<std_msgs::String>("SRBTestPublisher", 1000) ;
+    ros::Publisher srb_test_pub = nh.advertise<std_msgs::String>("hello_topic", 1000) ;
     ros::Rate loop_rate(10) ;
 
     int count = 0 ;

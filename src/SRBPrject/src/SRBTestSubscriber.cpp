@@ -11,6 +11,6 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "SRBTestSubscriber") ;
     ros::NodeHandle nh ;
 
-    ros::Subscriber srb_test_sub = nh.subscribe("SRBTestSubscriber", 1000, msgCallBack) ;
+    ros::Subscriber srb_test_sub = nh.subscribe("hello_topic", 1000, msgCallBack) ;
     ros::spin() ;
 }
