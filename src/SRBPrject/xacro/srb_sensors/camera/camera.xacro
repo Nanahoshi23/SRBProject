@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot name="dtw_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="camera_macro" params="parent prefix xyz">
+    <joint name="${prefix}_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child  link="${prefix}_link"/>
+      <origin xyz="${xyz}" rpy="${radians(-90)} 0 ${radians(-90)}"/>
+    </joint>
+    <link name="${prefix}_link"/>
+  </xacro:macro> 
+</robot>
