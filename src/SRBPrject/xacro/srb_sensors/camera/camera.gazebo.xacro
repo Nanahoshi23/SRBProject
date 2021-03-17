@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="dtw_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="slab_srb_robot" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="camera_macro" params="parent prefix xyz rpy">
   <!--xacro:macro name="camera_macro" params="parent prefix xyz"-->
     <joint name="${prefix}_joint" type="fixed">
