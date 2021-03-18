@@ -71,7 +71,7 @@ void imu_data_raw_cb(const sensor_msgs::Imu& imu_data_raw)
 int main(int argc, char **argv)
 {
     // ノードを初期化
-    ros::init(argc, argv, "slab_srb_imu_data_filter");
+    ros::init(argc, argv, "ImuDataFilter");
     ros::NodeHandle nh ;
 
     //Publisher
