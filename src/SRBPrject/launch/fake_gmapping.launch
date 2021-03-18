@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
   <arg name="model" default="$(find SRBProject)/robots/slab_srb.gazebo.xacro" />
-  <arg name="rvizconfig" default="$(find SRBProject)/rviz/slab_srb_disp_robot.rviz" />  
+  <arg name="rvizconfig" default="$(find SRBProject)/rviz/slab_srb.rviz" />  
   
   <!-- gazebo world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
