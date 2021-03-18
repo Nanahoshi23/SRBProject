@@ -7,8 +7,6 @@
 #include "nav_msgs/Odometry.h"
 #include "sensor_msgs/Imu.h"
 #include "sensor_msgs/JointState.h"
-#include "slab_srb_msgs/diff_driver_cmd.h"
-#include "slab_srb_msgs/diff_driver_fb.h"
 // #include "Quaternion.h"
 #include "tf/transform_datatypes.h"
 #include "tf/transform_listener.h"
@@ -107,8 +105,6 @@ class VisualIndicatorPublisher
         ros::Publisher m_gazebo_truth_odom_th_pub ;
 
         geometry_msgs::Twist       m_cmd_twist ;
-        slab_srb_msgs::diff_driver_cmd m_cmd_val ;
-        slab_srb_msgs::diff_driver_fb  m_raw_val ;
         nav_msgs::Odometry         m_wheel_odom ;
         nav_msgs::Odometry         m_gnss_odom ;
         sensor_msgs::Imu           m_imu_data ;
@@ -127,8 +123,6 @@ class VisualIndicatorPublisher
         // ros::Subscriber m_robot_pose_sub ;
 
         void m_cmd_twist_cb(const geometry_msgs::Twist::ConstPtr& cmd_twist) ;
-        void m_cmd_val_cb(const slab_srb_msgs::diff_driver_cmd::ConstPtr& cmd_val ) ;
-        void m_raw_val_cb(const slab_srb_msgs::diff_driver_fb::ConstPtr& raw_val ) ;
         void m_wheel_odom_cb(const nav_msgs::Odometry::ConstPtr& wheel_odom ) ;
         void m_gnss_odom_cb(const nav_msgs::Odometry::ConstPtr& gnss_odom) ;
         void m_gnss_data_cb(const sensor_msgs::NavSatFix::ConstPtr& gnss_data) ;
@@ -163,8 +157,6 @@ void VisualIndicatorPublisher::Init()
     // m_pnh.getParam("/electric_car/electril_car_params/giar_rate_param" , gaiar_rate ) ;                // ギア比
 
     m_cmd_twist_sub   = m_nh.subscribe<geometry_msgs::Twist>("/slab_srb_robot/diff_drive_controller/cmd_vel", 10, &VisualIndicatorPublisher::m_cmd_twist_cb, this) ;
-    m_cmd_val_sub     = m_nh.subscribe<slab_srb_msgs::diff_driver_cmd>("/slab_srb_robot/diff_driver_cmd", 10, &VisualIndicatorPublisher::m_cmd_val_cb, this) ;
-    m_raw_val_sub     = m_nh.subscribe<slab_srb_msgs::diff_driver_fb>("/slab_srb_robot/diff_driver_fb", 10, &VisualIndicatorPublisher::m_raw_val_cb, this) ;
     m_wheel_odom_sub  = m_nh.subscribe<nav_msgs::Odometry>("/slab_srb_robot/diff_drive_controller/odom", 10, &VisualIndicatorPublisher::m_wheel_odom_cb, this) ;
      m_gnss_odom_sub  = m_nh.subscribe<nav_msgs::Odometry>("/slab_srb_robot/gnss/odom", 10, &VisualIndicatorPublisher::m_gnss_odom_cb, this) ;
     m_imu_data_sub    = m_nh.subscribe<sensor_msgs::Imu>("/slab_srb_robot/imu/data", 10, &VisualIndicatorPublisher::m_imu_data_cb, this) ;
@@ -224,18 +216,6 @@ void VisualIndicatorPublisher::m_cmd_twist_cb(const geometry_msgs::Twist::ConstP
 }
 
 
-void VisualIndicatorPublisher::m_cmd_val_cb(const slab_srb_msgs::diff_driver_cmd::ConstPtr& cmd_val )
-{
-        m_r_motor_cmd_rps.data = (  cmd_val->r_motor_angular_velocity / (2.0*M_PI) ) ;
-        m_l_motor_cmd_rps.data = (  cmd_val->l_motor_angular_velocity / (2.0*M_PI) ) ;
-}
-
-
-void VisualIndicatorPublisher::m_raw_val_cb(const slab_srb_msgs::diff_driver_fb::ConstPtr& raw_val )
-{
-        m_r_motor_raw_rps.data = ( raw_val->r_angular_velocity / (2.0*M_PI) );
-        m_l_motor_raw_rps.data = ( raw_val->l_angular_velocity / (2.0*M_PI) );
-}
 
 
 void VisualIndicatorPublisher::m_wheel_odom_cb(const nav_msgs::Odometry::ConstPtr& wheel_odom )

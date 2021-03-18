@@ -14,9 +14,9 @@
   <xacro:wheel_macro prefix="right_wheel" parent="base_link" xyz="0 -0.304 0.1225"/>
   <xacro:laser_macro prefix="front_laser" parent="base_link" xyz="0.31 0 0.33" />
   <xacro:imu_macro prefix="imu" parent="base_link" xyz="0.0 0 0.16" robot_name="$(arg robot_name)"/>
-  <xacro:camera_macro parent="base_link" prefix="upward_camera" xyz="0 0 2.0" rpy="${radians(0)} 0 ${radians(-90)}"/>
-  <xacro:camera_macro parent="base_link" prefix="downward_camera" xyz="0 0 0.12" rpy="${radians(-180)} 0 ${radians(-90)}"/>
-  <xacro:camera_macro parent="base_link" prefix="front_camera" xyz="0.5 0 0.20" rpy="${radians(-120)} 0 ${radians(-90)}"/>
+  <!--xacro:camera_macro parent="base_link" prefix="upward_camera" xyz="0 0 2.0" rpy="${radians(0)} 0 ${radians(-90)}"/-->
+  <!--xacro:camera_macro parent="base_link" prefix="downward_camera" xyz="0 0 0.12" rpy="${radians(-180)} 0 ${radians(-90)}"/-->
+  <!--xacro:camera_macro parent="base_link" prefix="front_camera" xyz="0.5 0 0.20" rpy="${radians(-120)} 0 ${radians(-90)}"/-->
   <!--xacro:camera_macro parent="base_link" prefix="rear_camera" xyz="0 0 0.5" rpy="${radians(0)} {radians(-270} ${radians(-90)}"/-->
 
   <gazebo>

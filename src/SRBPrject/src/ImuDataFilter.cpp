@@ -1,3 +1,4 @@
+#include "ros/ros.h"
 #include "sensor_msgs/Imu.h"
 #include "geometry_msgs/PoseStamped.h"
 #include "tf/transform_datatypes.h"
@@ -71,7 +72,7 @@ void imu_data_raw_cb(const sensor_msgs::Imu& imu_data_raw)
 int main(int argc, char **argv)
 {
     // ノードを初期化
-    ros::init(argc, argv, "ImuDataFilter");
+    ros::init(argc, argv, "slab_srb_imu_data_filter");
     ros::NodeHandle nh ;
 
     //Publisher

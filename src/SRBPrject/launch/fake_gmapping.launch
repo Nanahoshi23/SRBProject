@@ -24,7 +24,7 @@
     <param name="/slab_srb_robot/diff_drive_controller/wheel_radius" value="0.1225" />
 
     <!-- visal_indicator -->
-    <node pkg="slab_srb" type="srb_visual_indicator_pub" name="visual_indicator">
+    <node pkg="SRBProject" type="Indicator" name="Indicator">
     </node>
 
     <!-- PS3joy -->
@@ -44,7 +44,7 @@
     </node>
 
     <!-- imu_filter -->
-    <node pkg="slab_srb" name="slab_srb_imu_data_filter" type="slab_srb_imu_data_filter">
+    <node pkg="SRBProject" name="ImuDataFilter" type="ImuDataFilter">
     </node>
 
     <!-- robot localization -->
