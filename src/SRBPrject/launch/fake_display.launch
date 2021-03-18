@@ -13,7 +13,7 @@
         <arg name="debug" value="false"/>
     </include>
 
-    <!-- dtw_robot -->
+    <!-- slab_srb_robot -->
     <include file="$(find SRBProject)/launch/fake_srb_spawn.launch">
         <arg name="robot_name" value="slab_srb_robot"/>
     </include>
@@ -22,6 +22,13 @@
         <!-- to increase the wheel odometry error -->
         <param name="/slab_srb_robot/diff_drive_controller/wheel_radius" value="0.1225" />
 
+        <!-- PS4joy -->
+        <node pkg="joy" name="joy_node" type="joy_node">
+        </node>
+
+        <!-- joy_to_cmd_twist -->
+        <node pkg="SRBProject" name="JoyToTwistPublisher" type="JoyToTwistPublisher">
+        </node>
 
         <node pkg="robot_localization" type="ekf_localization_node" name="ekf_se" clear_params="true" output="screen">
             <rosparam command="load" file="$(find SRBProject)/config/ekf_localization/slab_srb_ekf.yaml" />
