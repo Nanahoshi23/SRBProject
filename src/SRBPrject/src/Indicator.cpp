@@ -463,7 +463,7 @@ void VisualIndicatorPublisher::Publish()
 int main(int argc, char **argv)
 {
     // ノードを初期化
-    ros::init(argc, argv, "visual_indicator_pub");
+    ros::init(argc, argv, "Indicator");
 
     VisualIndicatorPublisher visual_indicator_publisher ;
     visual_indicator_publisher.Init() ;
