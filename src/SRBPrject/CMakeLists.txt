@@ -35,3 +35,8 @@ target_link_libraries(SRBTestPublisher ${catkin_LIBRARIES})
 
 add_executable(SRBTestSubscriber src/SRBTestSubscriber.cpp )
 target_link_libraries(SRBTestSubscriber ${catkin_LIBRARIES})
+
+add_executable(JoyToTwistPublisher src/JoyToTwistPublisher.cpp )
+target_link_libraries(JoyToTwistPublisher ${catkin_LIBRARIES})
+
+
