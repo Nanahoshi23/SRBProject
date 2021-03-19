@@ -35,3 +35,14 @@ target_link_libraries(SRBTestPublisher ${catkin_LIBRARIES})
 
 add_executable(SRBTestSubscriber src/SRBTestSubscriber.cpp )
 target_link_libraries(SRBTestSubscriber ${catkin_LIBRARIES})
+
+add_executable(JoyToTwistPublisher src/JoyToTwistPublisher.cpp )
+target_link_libraries(JoyToTwistPublisher ${catkin_LIBRARIES})
+
+add_executable( ImuDataFilter src/ImuDataFilter.cpp ) 
+target_link_libraries( ImuDataFilter ${catkin_LIBRARIES} )
+
+add_executable( Indicator src/Indicator.cpp ) 
+target_link_libraries( Indicator ${catkin_LIBRARIES} )
+
+
